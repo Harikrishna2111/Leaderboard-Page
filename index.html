@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leaderboard — AIDS Association</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- MAIN AREA -->
+    <main class="main">
+      <!-- header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-title">Leaderboards</h1>
+          <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="enigma">Enigma</button>
+            <button class="tab" data-tab="genesys">Genesys</button>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search">
+            <input id="globalSearch" type="search" placeholder="Search student / team..." />
+          </div>
+          <div class="profile">AA</div>
+        </div>
+      </header>
+
+      <!-- content -->
+      <section class="content">
+        <div class="content-left">
+
+          <!-- FILTER row: simplified per your requirement -->
+          <div class="filters card">
+            <div class="filter-row">
+              <label>Batch</label>
+              <div class="batch-toggle" role="group" aria-label="First year or Non first year">
+                <button class="batch-btn active" data-batch="first">First Years</button>
+                <button class="batch-btn" data-batch="non-first">Non-First Years</button>
+              </div>
+
+
+              <div class="controls">
+                <button class="btn primary" id="refreshBtn">Refresh</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ENIGMA SECTION -->
+          <div id="enigmaSection" class="section" aria-hidden="false">
+            <div class="card leaderboard-card">
+              <div class="section-title">
+                <div>Enigma — Overall Leaderboard</div>
+                <div class="mini-tabs">
+                  <button class="mini-tab active" data-mini="overall">Overall</button>
+                  <button class="mini-tab" data-mini="codeenigma">CodeEnigma</button>
+                </div>
+              </div>
+
+              <div class="mini-content" id="overallContent">
+                <table class="leaderboard-table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Register No</th>
+                      <th>Name</th>
+                      <th>Year</th>
+                      <th>Score</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="enigmaOverallBody">
+                    <!-- populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="mini-content" id="codeenigmaContent" style="display:none; margin-top:14px">
+                <table class="leaderboard-table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Name</th>
+                      <th>Problems</th>
+                      <th>Score</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="codeEnigmaBody">
+                    <!-- populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card organizers-card" style="margin-top:12px">
+              <h3>Organizers</h3>
+              <ul class="organizers-list" id="enigmaOrganizers">
+                <!-- JS -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- GENESYS SECTION -->
+          <div id="genesysSection" class="section" aria-hidden="true" style="display:none;">
+            <div class="card leaderboard-card">
+              <div class="section-title">
+                <div>Genesys — Project Leaderboard</div>
+                <div style="font-size:13px;color:var(--muted)">Top projects (AIDS)</div>
+              </div>
+
+              <table class="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Team / Project</th>
+                    <th>Year</th>
+                    <th>Members</th>
+                    <th>Score</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="genesysBody">
+                  <!-- populated by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card organizers-card" style="margin-top:12px">
+              <h3>Organizers (Genesys)</h3>
+              <ul class="organizers-list" id="genesysOrganizers"></ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="content-right">
+          <div class="card winners-card">
+            <h3>Top Winners</h3>
+            <ol class="winners-list" id="rightWinners">
+              <!-- JS -->
+            </ol>
+          </div>
+
+          <div class="card stats-card">
+            <h3>Statistics</h3>
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-value" id="statStudents">120</div>
+                <div class="stat-label">Total Participants</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="statFirst">40</div>
+                <div class="stat-label">First Years</div>
+              </div>
+            </div>
+
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-value" id="statProjects">60</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="statAvg">7.9</div>
+                <div class="stat-label">Avg Score</div>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </section>
+    </main>
+
+  </div>
+
+  <div class="note">
+    Tip: This is the frontend layout only. Use your backend to provide dynamic data to the tables.
+  </div>
+
+  <!-- Minimal JS to toggle tabs and render placeholders (you can move to script.js) -->
+  <script>
+  // Placeholder sample data (replace with backend fetch later)
+  const enigmaOverall = [
+  { rank:1, name:"Aarav S", year:"II", team:"CipherCrew", score:510 },
+  { rank:2, name:"Diya R", year:"III", team:"AlgoMatrix", score:495 },
+  { rank:3, name:"Vishal K", year:"IV", team:"NeuralEdge", score:480 },
+  { rank:4, name:"Kavya M", year:"II", team:"VisionX", score:470 },
+  { rank:5, name:"Harish P", year:"III", team:"DataSmiths", score:455 },
+  { rank:6, name:"Nandhini T", year:"I", team:"QuantumBits", score:440 },
+  { rank:7, name:"Pranav G", year:"II", team:"TechTitans", score:430 },
+  { rank:8, name:"Ritika S", year:"IV", team:"ByteForce", score:420 },
+  { rank:9, name:"Santhosh R", year:"III", team:"ModelMinds", score:408 },
+  { rank:10, name:"Meenakshi P", year:"II", team:"CodeWave", score:400 }
+];
+  const codeEnigma = [
+  { rank:1, name:"Aarav S", solved:18, score:260 },
+  { rank:2, name:"AlgoQueen", solved:17, score:250 },
+  { rank:3, name:"CoderX", solved:16, score:240 },
+  { rank:4, name:"BinaryBeast", solved:14, score:230 },
+  { rank:5, name:"ScriptLord", solved:13, score:220 },
+  { rank:6, name:"Devisha", solved:12, score:210 },
+  { rank:7, name:"Nishanth", solved:11, score:205 },
+  { rank:8, name:"ByteGuru", solved:10, score:200 },
+  { rank:9, name:"NeuralNinja", solved:9, score:190 },
+  { rank:10, name:"OmegaCoder", solved:9, score:185 }
+];
+
+  const genesysProjects = [
+  { rank:1, project:"Project Nova", lead:"Arun", year:"III", members:"Arun, Ria", score:520 },
+  { rank:2, project:"AquaSense", lead:"Divya", year:"II", members:"Divya, Kavin", score:505 },
+  { rank:3, project:"MedScan AI", lead:"Ragul", year:"IV", members:"Ragul, Surya", score:490 },
+  { rank:4, project:"EcoVision", lead:"Ishika", year:"III", members:"Ishika, Roshan", score:475 },
+  { rank:5, project:"AgroBot", lead:"Manoj", year:"II", members:"Manoj, Karthik", score:468 },
+  { rank:6, project:"SafeRoute", lead:"Priya", year:"I", members:"Priya, Rithik", score:460 },
+  { rank:7, project:"SmartBin", lead:"Sahana", year:"III", members:"Sahana, Akash", score:452 },
+  { rank:8, project:"HeartGuard", lead:"Jeevan", year:"IV", members:"Jeevan, Varun", score:445 },
+  { rank:9, project:"RiskPredict", lead:"Harini", year:"II", members:"Harini, Naveen", score:430 },
+  { rank:10, project:"GreenPulse", lead:"Ajay", year:"III", members:"Ajay, Shreya", score:420 }
+];
+
+  const enigmaOrganizers = ["XXX (III Year)", "YYY (II Year)", "ZZZ (I Year)"];
+  const genesysOrganizers = ["Alpha (III Year)", "Beta (II Year)"];
+  const winners = ["AAA", "Project Nova", "CoderX"];
+
+  function renderEnigmaOverall() {
+    const tbody = document.getElementById("enigmaOverallBody");
+    tbody.innerHTML = "";
+    enigmaOverall.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${r.rank}</td>
+        <td><div class="name-title">${r.name}</div></td>
+        <td>${r.year}</td>
+        <td>${r.team}</td>
+        <td>${r.score}</td>
+        <td><button class="btn small">View</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderCodeEnigma() {
+    const tbody = document.getElementById("codeEnigmaBody");
+    tbody.innerHTML = "";
+    codeEnigma.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${r.rank}</td>
+        <td>${r.name}</td>
+        <td>${r.solved} solved</td>
+        <td>${r.score}</td>
+        <td><button class="btn small">View</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderGenesys() {
+    const tbody = document.getElementById("genesysBody");
+    tbody.innerHTML = "";
+    genesysProjects.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${r.rank}</td>
+        <td><div class="name-title">${r.project}</div><div class="sub">Lead: ${r.lead}</div></td>
+        <td>${r.year}</td>
+        <td>${r.members}</td>
+        <td>${r.score}</td>
+        <td><button class="btn small">View</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderOrganizers() {
+    document.getElementById("enigmaOrganizers").innerHTML = enigmaOrganizers.map(x=>`<li>${x}</li>`).join("");
+    document.getElementById("genesysOrganizers").innerHTML = genesysOrganizers.map(x=>`<li>${x}</li>`).join("");
+    document.getElementById("rightWinners").innerHTML = winners.map(x=>`<li>${x}</li>`).join("");
+  }
+
+  renderEnigmaOverall();
+  renderCodeEnigma();
+  renderGenesys();
+  renderOrganizers();
+
+  // top tabs toggle
+  document.querySelectorAll('.tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const t = btn.dataset.tab;
+      document.getElementById('enigmaSection').style.display = (t==='enigma') ? '' : 'none';
+      document.getElementById('genesysSection').style.display = (t==='genesys') ? '' : 'none';
+    });
+  });
+
+  // mini tabs inside enigma
+  document.querySelectorAll('.mini-tab').forEach(mt=>{
+    mt.addEventListener('click', ()=>{
+      document.querySelectorAll('.mini-tab').forEach(m=>m.classList.remove('active'));
+      mt.classList.add('active');
+      const m = mt.dataset.mini;
+      document.getElementById('overallContent').style.display = (m==='overall') ? '' : 'none';
+      document.getElementById('codeenigmaContent').style.display = (m==='codeenigma') ? '' : 'none';
+    });
+  });
+
+  // batch toggle (first / non-first)
+  document.querySelectorAll('.batch-btn').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('.batch-btn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      // TODO: filter the tables (call backend or filter arrays)
+      console.log('Batch filter set:', b.dataset.batch);
+    });
+  });
+
+  document.getElementById('refreshBtn').addEventListener('click', ()=>{
+    // placeholder for re-fetch
+    renderEnigmaOverall(); renderCodeEnigma(); renderGenesys(); renderOrganizers();
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', ()=>{
+    alert('Export demo — implement backend export for real data.');
+  });
+  </script>
+</body>
+</html>
