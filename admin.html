@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">Admin Panel</h1>
+    <p class="subtitle">Update leaderboard by entering register number and points.</p>
+
+    <!-- TABS -->
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('genesys')">Genesys</button>
+        <button class="tab" onclick="showTab('enigma')">Enigma</button>
+        <button class="tab" onclick="showTab('codeenigma')">CodeEnigma</button>
+    </div>
+
+    <!-- INPUT CARD -->
+    <div class="card">
+        <label>Register No</label>
+        <input type="text" id="reg" placeholder="Enter register no" oninput="autoFillName()">
+
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Auto-filled" disabled>
+
+        <label>Points</label>
+        <input type="number" id="points" placeholder="Enter points">
+
+        <button class="btn" onclick="addPoints()">Add Points</button>
+    </div>
+
+    <!-- LEADERBOARDS -->
+    <div id="genesys" class="leaderboard">
+        <h2>Genesys Leaderboard</h2>
+        <ul id="genesysList"></ul>
+    </div>
+
+    <div id="enigma" class="leaderboard hidden">
+        <h2>Enigma Leaderboard</h2>
+        <ul id="enigmaList"></ul>
+    </div>
+
+    <div id="codeenigma" class="leaderboard hidden">
+        <h2>CodeEnigma Leaderboard</h2>
+        <ul id="codeenigmaList"></ul>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
