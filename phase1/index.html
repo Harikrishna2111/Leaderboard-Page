@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leaderboard — AIDS Association</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- MAIN AREA -->
+    <main class="main">
+      <!-- header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-title">Leaderboards</h1>
+          <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="enigma">Enigma</button>
+            <button class="tab" data-tab="genesys">Genesys</button>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search">
+            <input id="globalSearch" type="search" placeholder="Search student / team..." />
+          </div>
+
+          <!-- THEME TOGGLE -->
+          <div class="theme-switch">
+            <button id="themeToggle" class="btn ghost" aria-label="Toggle theme">🌙</button>
+          </div>
+
+          <div class="profile">AA</div>
+        </div>
+      </header>
+
+      <!-- content -->
+      <section class="content">
+        <div class="content-left">
+
+          <!-- FILTER row -->
+          <div class="filters card">
+            <div class="filter-row">
+              <label>Batch</label>
+              <div class="batch-toggle" role="group" aria-label="First year or Non first year">
+                <button class="batch-btn active" data-batch="first">First Years</button>
+                <button class="batch-btn" data-batch="non-first">Non-First Years</button>
+              </div>
+
+              <div class="controls">
+                <button class="btn primary" id="refreshBtn">Refresh</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ENIGMA SECTION -->
+          <div id="enigmaSection" class="section" aria-hidden="false">
+            <div class="card leaderboard-card">
+              <div class="section-title">
+                <div>Enigma — Overall Leaderboard</div>
+                <div class="mini-tabs">
+                  <button class="mini-tab active" data-mini="overall">Overall</button>
+                  <button class="mini-tab" data-mini="codeenigma">CodeEnigma</button>
+                </div>
+              </div>
+
+              <div class="mini-content" id="overallContent">
+                <table class="leaderboard-table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Register No</th>
+                      <th>Name</th>
+                      <th>Year</th>
+                      <th>Score</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                  <tbody id="enigmaOverallBody">
+                    <!-- JS will populate rows -->
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="mini-content" id="codeenigmaContent" style="display:none; margin-top:14px">
+                <table class="leaderboard-table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Name</th>
+                      <th>Problems</th>
+                      <th>Score</th>
+                      <th>Change</th>
+                    </tr>
+                  </thead>
+                  <tbody id="codeEnigmaBody">
+                    <!-- JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card organizers-card" style="margin-top:12px">
+              <h3>Organizers</h3>
+              <ul class="organizers-list" id="enigmaOrganizers">
+                <!-- JS -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- GENESYS SECTION -->
+          <div id="genesysSection" class="section" aria-hidden="true" style="display:none;">
+            <div class="card leaderboard-card">
+              <div class="section-title">
+                <div>Genesys — Project Leaderboard</div>
+                <div style="font-size:13px;color:var(--muted)">Top projects (AIDS)</div>
+              </div>
+
+              <table class="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Team / Project</th>
+                    <th>Year</th>
+                    <th>Members</th>
+                    <th>Score</th>
+                    <th>Change</th>
+                  </tr>
+                </thead>
+                <tbody id="genesysBody">
+                  <!-- JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card organizers-card" style="margin-top:12px">
+              <h3>Organizers (Genesys)</h3>
+              <ul class="organizers-list" id="genesysOrganizers"></ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="content-right">
+          <div class="card winners-card">
+            <h3>Top Winners</h3>
+            <ol class="winners-list" id="rightWinners">
+              <!-- JS -->
+            </ol>
+          </div>
+
+          <div class="card stats-card">
+            <h3>Statistics</h3>
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-value" id="statStudents">120</div>
+                <div class="stat-label">Total Participants</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="statFirst">40</div>
+                <div class="stat-label">First Years</div>
+              </div>
+            </div>
+
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-value" id="statProjects">60</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="statAvg">7.9</div>
+                <div class="stat-label">Avg Score</div>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </section>
+    </main>
+
+  </div>
+
+  <div class="note">
+    Tip: This is the frontend layout only. Use your backend to provide dynamic data to the tables.
+  </div>
+
+  <!-- DARK MODE & JS -->
+  <script>
+    document.getElementById("themeToggle").onclick = () => {
+      document.body.classList.toggle("dark");
+      themeToggle.textContent =
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
+    };
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
