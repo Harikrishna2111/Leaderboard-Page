@@ -1,0 +1,178 @@
+{
+  "enigma-first-year": {
+    "placements": [
+      {
+        "name": "Hariharan S",
+        "roll": "715523243013",
+        "year": 3,
+        "score": 140,
+        "time": 45
+      },
+      {
+        "name": "Harish Kumar M",
+        "roll": "715522243001",
+        "year": 4,
+        "score": 115,
+        "time": 47
+      },
+      {
+        "name": "Vishnu Prasad",
+        "roll": "715523243068",
+        "year": 3,
+        "score": 112,
+        "time": 50
+      },
+      {
+        "name": "Bala Murugan",
+        "roll": "715522243018",
+        "year": 4,
+        "score": 111,
+        "time": 56
+      },
+      {
+        "name": "Shalini V",
+        "roll": "715523243022",
+        "year": 3,
+        "score": 97,
+        "time": 54
+      },
+      {
+        "name": "Kavya Lakshmi",
+        "roll": "715525243005",
+        "year": 1,
+        "score": 94,
+        "time": 53
+      },
+      {
+        "name": "Manikandan B",
+        "roll": "715522243057",
+        "year": 4,
+        "score": 73,
+        "time": 85
+      },
+      {
+        "name": "Sanjay M",
+        "roll": "715524243026",
+        "year": 2,
+        "score": 46,
+        "time": 34
+      },
+      {
+        "name": "Suresh K",
+        "roll": "715525243044",
+        "year": 1,
+        "score": 32,
+        "time": 25
+      },
+      {
+        "name": "Deepika S",
+        "roll": "715522243033",
+        "year": 4,
+        "score": 13,
+        "time": 54
+      }
+    ],
+    "updatedAt": "2025-12-12T12:47:11.666Z"
+  },
+  "enigma-non-first-year": {
+    "placements": [
+      {
+        "name": "Meenakshi N",
+        "roll": "715524243011",
+        "year": 2,
+        "score": 342,
+        "time": 65
+      },
+      {
+        "name": "Deepika S",
+        "roll": "715522243033",
+        "year": 4,
+        "score": 123,
+        "time": 54
+      },
+      {
+        "name": "Bala Murugan",
+        "roll": "715522243018",
+        "year": 4,
+        "score": 112,
+        "time": 64
+      },
+      {
+        "name": "Harish Kumar M",
+        "roll": "715522243001",
+        "year": 4,
+        "score": 103,
+        "time": 67
+      },
+      {
+        "name": "Swetha L",
+        "roll": "715525243008",
+        "year": 1,
+        "score": 98,
+        "time": 63
+      },
+      {
+        "name": "Suresh K",
+        "roll": "715525243044",
+        "year": 1,
+        "score": 97,
+        "time": 76
+      },
+      {
+        "name": "Harini S",
+        "roll": "715525243014",
+        "year": 1,
+        "score": 65,
+        "time": 78
+      },
+      {
+        "name": "Shalini V",
+        "roll": "715523243022",
+        "year": 3,
+        "score": 43,
+        "time": 69
+      },
+      {
+        "name": "Hariharan S",
+        "roll": "715523243013",
+        "year": 3,
+        "score": 32,
+        "time": 79
+      },
+      {
+        "name": "Kavya Lakshmi",
+        "roll": "715525243005",
+        "year": 1,
+        "score": 30,
+        "time": 84
+      }
+    ],
+    "updatedAt": "2025-12-12T12:35:21.149Z"
+  },
+  "codenigma": {
+    "placements": [
+      {
+        "name": "Swetha L",
+        "roll": "715525243008",
+        "year": 1,
+        "score": "",
+        "time": ""
+      },
+      {
+        "name": "Karthikeyan J",
+        "roll": "715524243052",
+        "year": 2,
+        "score": "",
+        "time": ""
+      },
+      {
+        "name": "Harish Kumar M",
+        "roll": "715522243001",
+        "year": 4,
+        "score": "",
+        "time": ""
+      }
+    ],
+    "updatedAt": "2025-12-12T07:59:28.114Z"
+  }
+}

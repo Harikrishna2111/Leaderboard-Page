@@ -60,10 +60,32 @@ export default function Navbar({ toggleSidebar, profileMenuOpen, setProfileMenuO
           >
             <ul className="py-2">
               <li>
-                <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">My Profile</button>
+                <button
+                  className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50"
+                  onClick={() => {
+                    window.dispatchEvent(
+                      new CustomEvent("navigate", { detail: "profile" })
+                    );
+                    setProfileMenuOpen(false);
+                  }}
+                >
+                  My Profile
+                </button>
+
               </li>
               <li>
-                <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">Edit Profile</button>
+                <button
+                  className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50"
+                  onClick={() => {
+                    window.dispatchEvent(
+                      new CustomEvent("navigate", { detail: "edit-profile" })
+                    );
+                    setProfileMenuOpen(false);
+                  }}
+                >
+                  Edit Profile
+                </button>
+                
               </li>
               <li>
                 <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">Logout</button>

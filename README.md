@@ -1,16 +1,135 @@
-# React + Vite
+# ==================================================
+# 📊 Leaderboard & Profile Portal
+# AI & DS Association – College Web Portal
+# ==================================================
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web portal built for the department association
+to manage event leaderboards and student profiles,
+with separate admin and user views.
 
-Currently, two official plugins are available:
+# --------------------------------------------------
+# 🚀 FEATURES
+# --------------------------------------------------
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ADMIN SIDE
+- Manage event leaderboards
+  - Enigma (First Year / Non-First Year)
+  - Codenigma
+- Select students from dataset
+- Enter score and time
+- Automatic sorting (score ↓, time ↑)
+- Data stored in MongoDB
 
-## React Compiler
+USER SIDE
+- View event leaderboards
+- View personal profile
+- Edit profile
+  - Name, year, bio
+  - Skills (add / remove)
+  - Achievements (add / edit / delete)
+- Profile data synced with MongoDB
+- Profile picture edit page (UI ready)
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+# --------------------------------------------------
+# 🛠️ TECH STACK
+# --------------------------------------------------
 
-## Expanding the ESLint configuration
+FRONTEND
+- React (Vite)
+- JavaScript
+- CSS / Tailwind utilities
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+BACKEND
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- CORS
+
+# --------------------------------------------------
+# 📁 PROJECT STRUCTURE
+# --------------------------------------------------
+
+Leaderboard-Page/
+├── backend/
+│   ├── models/
+│   │   ├── Profile.js
+│   │   └── LeaderboardRow.js
+│   ├── server.cjs
+│   ├── .env.example
+│
+├── src/
+│   ├── components/
+│   │   ├── admin-Leaderboards.jsx
+│   │   ├── admin-LeaderboardBox.jsx
+│   │   ├── UserLeaderboards.jsx
+│   │   ├── UserLeaderboard.jsx
+│   │   ├── ProfilePage.jsx
+│   │   └── EditProfile.jsx
+│   ├── App.jsx
+│   ├── App.css
+│
+├── .gitignore
+├── package.json
+└── README.md
+
+# --------------------------------------------------
+# ⚙️ SETUP INSTRUCTIONS
+# --------------------------------------------------
+
+# 1) Clone the repository
+$ git clone <repository-url>
+$ cd Leaderboard-Page
+
+# --------------------------------------------------
+
+# 2) Install frontend dependencies
+$ npm install
+
+# --------------------------------------------------
+
+# 3) Backend setup
+$ cd backend
+$ npm install
+
+# Create a .env file inside backend/
+# (DO NOT COMMIT THIS FILE)
+
+MONGO_URI=your_mongodb_connection_string
+PORT=4000
+
+# --------------------------------------------------
+
+# 4) Run backend
+$ node server.cjs
+
+# Backend runs at:
+# http://localhost:4000
+
+# --------------------------------------------------
+
+# 5) Run frontend
+$ cd ..
+$ npm run dev
+
+# Frontend runs at:
+# http://localhost:5173
+
+# --------------------------------------------------
+# 🧪 DEMO MODE
+# --------------------------------------------------
+
+- Application runs in demo mode
+- Fixed user identifier: Demo User
+- Authentication will be integrated later
+
+# --------------------------------------------------
+# 👨‍💻 CONTRIBUTORS
+# --------------------------------------------------
+
+AI & DS Association – Web Team
+
+# --------------------------------------------------
+# 📜 LICENSE
+# --------------------------------------------------
+
+Developed for educational and departmental use.
