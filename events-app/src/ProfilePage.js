@@ -1,8 +1,8 @@
 // src/ProfilePage.js
 import React from "react";
-import PropTypes from "prop-types"; // NEW: Import PropTypes
+import PropTypes from "prop-types";
 
-// Static Data based on the wireframe
+// Static Data for the Read-Only View
 const profileData = {
   name: "XXX",
   year: "3rd Year AI&DS",
@@ -23,7 +23,7 @@ const profileData = {
 
 const SkillTag = ({ skill }) => <span className="skill-tag">{skill}</span>;
 
-// NEW: PropTypes validation for SkillTag
+// PropTypes validation for SkillTag
 SkillTag.propTypes = {
   skill: PropTypes.string.isRequired,
 };
@@ -34,7 +34,6 @@ export const ProfilePage = () => {
       {/* 1. Profile Info Card */}
       <div className="profile-info-card">
         <div className="profile-icon-large">
-          {/* Placeholder for Profile Icon */}
           <img src="user-icon.png" alt="Profile" />
         </div>
         <h2>{profileData.name}</h2>

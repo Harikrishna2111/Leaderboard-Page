@@ -1,6 +1,6 @@
 // src/Sidebar.js
 import React from "react";
-import PropTypes from "prop-types"; // NEW: Import PropTypes
+import PropTypes from "prop-types";
 
 const navItems = [
   "Dashboard",
@@ -33,7 +33,7 @@ export const Sidebar = ({ activeTab, setActiveTab }) => {
   );
 };
 
-// NEW: PropTypes validation
+// PropTypes validation
 Sidebar.propTypes = {
   activeTab: PropTypes.string.isRequired,
   setActiveTab: PropTypes.func.isRequired,
